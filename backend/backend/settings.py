@@ -129,6 +129,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFLIES_DIRS = [
+    BASE_DIR / "static",
+]
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -137,10 +145,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 JAZZMIN_SETTINGS = {
-    "site_title": "Super Fripe",
-    "site_header": "Super Fripe",
-    "site_brand": "Super Fripe",
-    "welcome_sign": "Welcome to Super Fripe",
+    "site_title": "SMP",
+    "site_header": "SMP",
+    "site_brand": "SMP",
+    "welcome_sign": "Welcome to SMP",
     "copyright": "Deadlymind",
     "show_ui_builder": True,
 }
