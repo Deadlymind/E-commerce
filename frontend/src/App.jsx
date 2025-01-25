@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
+
+import Login from './views/auth/Login';
+import Register from './views/auth/Register';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    
+    <BrowserRouter>
+    
+      <Routes>
+        
+        {/* Add a route for "/" */}
+        <Route path="/" element={<Navigate to="/" />} />
+        {/* Define the "/login" route */}
+        <Route path="/login" element={<Login />} />
+        {/* Define the "/register" route */}
+        <Route path="/register" element={<Register />} />
+        {/* Add a fallback route for unmatched paths */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+// Fallback "Not Found" Component
+function NotFound() {
+  return <h1>404 - Page Not Found</h1>;
+}
+
+export default App;
